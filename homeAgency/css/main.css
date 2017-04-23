@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+/*-------------header------------------*/
+
+.shift-down {
+	padding-top: 112px;
+}
+
+.preview {
+	position: absolute;
+	z-index: 200;
+	/*width: 100%;*/
+	opacity: 0.5;
+}
+
+.centering {
+	padding: 110px 0;
+}
+
+.container-valign {
+	padding-top: 21px;
+}
+
+.navbar-nav-valign {
+	padding-top: 11px;
+}
+
+.navbar-nav li {
+	margin-right: 12px;
+}
+/*-------------carousel-------------*/
+
+.placeholder {
+
+	/*marks: in-height: 880px;*/
+	margin-top: 110px;
+	background-color: #506a85;
+}
