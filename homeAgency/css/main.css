@@ -101,32 +101,48 @@ h5:hover {
 }
 
 .hovered-media-object {
+    position: relative;
     background: transparent;
     color: white;
     font-size: 32pt;
+    text-align: center;
 }
 
 .overlap-info {
-    display: none;
     position: absolute;
-    margin: 36% 45%;
     color: white;
+    width: 100%;
+    height: 100%;
+    padding: 25%;
+    background: #00bc9c;
+    opacity: 0;
+    transition: opacity linear 0.2s;
 
+}
+
+.overlap-info:hover,
+.overlap-info:active,
+.overlap-info-small:hover,
+.overlap-info-small:active {
+    color: white;
+    opacity: 0.9;
+}
+
+.overlap-info-small {
+    position: absolute;
+    padding: 25%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: #00bc9c;
+    transition: opacity linear 0.2s;
+    color: white;
+    font-size: 10pt;
 }
 
 .hovered-media-object img {
     height: 100%;
     width: 100%;
-    transition: opacity linear 0.2s;
-
-}
-.hovered-media-object:hover,
-.hovered-media-object:active {
-    background: #00bc9c;
-}
-.hovered-media-object img:focus,
-.hovered-media-object img:hover {
-    opacity: 0.1;
 }
 
 .carousel0-centering {
