@@ -130,7 +130,7 @@ h5:hover {
     background: #00bc9c;
     transition: opacity linear 0.2s;
     color: white;
-    font-size: 10pt;
+    font-size: 14pt;
 }
 
 .hovered-media-object img {
@@ -159,6 +159,9 @@ h5:hover {
     height: 30px;
     border-radius: 3px;
     font-size: 20pt;
+    opacity: 0;
+    background: #506a85;
+    transition: opacity linear 0.2s;
 }
 
 .media p {
@@ -176,7 +179,7 @@ h5:hover {
 }
 
 .container-grey { 
-        background-color: #f2f5f7;
+    background-color: #f2f5f7;
 }
 
 .container-blue {
