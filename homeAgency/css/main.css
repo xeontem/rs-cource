@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:700');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
-
-/*-------------header------------------*/
+h5:hover {
+    color: #00bc9c;
+}
 
 .preview {
     position: absolute;
@@ -11,22 +12,71 @@
     opacity: 0.5;
 }
 
-.nav-item:last-child {
-    position: absolute;
-    right: 0;
+.nav-item:nth-child(7) {
+    padding-right: 21%;
 }
 
-/*---------------carousel---------------*/
+.first-slide {
+    top: 30%;
+}
 
-.first-slide-info {
-    position: absolute;
-    padding-top: 28px;
-    width: 960px;
-    color: #fff;
+.second-slide {
+    top: 25%;
+    right: 19%;
+    left: 0px;
+    text-align: right;
+}
+
+.third-slide {
+    top: 21%;
+    left: 19.5%;
+    text-align: left;
+}
+
+.third-slide h2 {
+    background-color: #506a85;
+    margin: 2px;
+    padding: 18px 30px;
+    letter-spacing: -1px;
+}
+
+.third-slide p {
+    margin-top: 25px;
+    color: #506a85;
+}
+
+.fourth-slide {
+    top: 7%;
+    right: 19.5%;
+    text-align: right;
+}
+
+.fourth-slide h2 {
+    background-color: #506a85;
+    margin: 2px;
+    padding: 18px 30px;
+    letter-spacing: 0;
+}
+
+.fourth-slide p {
+    margin-top: 25px;
+    color: white;
+}
+
+.fifth-slide {
+    top: 6.5%;
+}
+
+.fifth-slide h2 {
+    margin: 0 10%;
+}
+
+.fifth-slide p {
+    margin-top: 15px;
 }
 
 .centering {
-    padding: 68px 0px 111px 0px;
+    padding: 68px 0px 105px 0px;
 }
 
 .info-text {
@@ -42,63 +92,84 @@
 }
 
 .cards {
-    height: 500px;
-    margin: 4px 0 -4px 0;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background: white;
+    text-align: center;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
 }
 
 .hovered-media-object {
-    position: absolute;
-    width: 570px;
-    height: 390px;
-    padding: 164px 275px;
     background: #00bc9c;
     color: white;
     font-size: 32pt;
-    opacity: 0;
 }
 
-.hovered-media-object:focus,
-.hovered-media-object:hover {
-    opacity: 0.9;
+.overlap-info {
+    display: none;
+    position: absolute;
+    margin: 36% 45%;
+    color: white;
+
 }
+
+.hovered-media-object img {
+    height: 100%;
+    width: 100%;
+    transition: opacity linear 0.2s;
+
+}
+
+.hovered-media-object img:focus,
+.hovered-media-object img:hover {
+    opacity: 0.1;
+}
+
 .carousel0-centering {
     margin-top: 112px;
 }
+
 .carousel1-centering {
     padding: 30px 0 87px 0;
 }
 
 .carousel-indicators1 {
-    position: initial;
+    padding: 0 40px;
+    margin: 0;
     background: transparent;
 }
 
 .carousel-control-prev1,
 .carousel-control-next1 {
     position: initial;
-    top: 47%;
     width: 30px;
     height: 30px;
+    border-radius: 3px;
+    font-size: 20pt;
+}
+
+.media p {
+    margin-bottom: 22px;
 }
 
 .navigation {
     display: flex;
-    margin: 0 38%;
+    width: 203px;
+    margin: 34px auto;
+    margin-bottom: -66px;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
 }
 
-.container-grey { /*here none*/
-  background-color: #f2f5f7;
+.container-grey { 
+        background-color: #f2f5f7;
 }
 
-.container-blue { /*here none*/
-  background-color: #2f4052;
+.container-blue {
+    margin-top: 5px;
+    background-color: #2f4052;
 }
 
 .container-dark {
@@ -113,7 +184,7 @@
 }
 
 .article {
-    margin-top: 56px;
+    margin-top: 57px;
 }
 
 .footer-banner {
@@ -130,21 +201,22 @@ footer p {
     line-height: 1.55;
 }
 
-address p {
-    font-size: 11pt;
-    letter-spacing: 0.4px;
-    line-height: 0;
-    margin: 10px 0 0 0;
+address a {
+    display: block;
 }
 
 .crumbs {
-    margin: 28px 0px 0px 180px;
+    margin: 28px 0px 0px 36%;
 }
 
 .slides {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 .slides div {
-    margin: 6px 0 0 0;
+    margin: 4px 1px; 
+}
+
+form {
+    position: relative;
 }

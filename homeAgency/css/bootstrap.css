@@ -267,7 +267,7 @@ template {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   abbr[title]::after {
     content: " (" attr(title) ")";
@@ -403,13 +403,13 @@ blockquote {
 }
 
 a {
-  color: #0275d8;
+  color: #a3b1bf;
   text-decoration: none;
 }
 
-a:focus, a:hover {
-  color: #014c8c;
-  text-decoration: underline;
+a:focus, a:hover { /*here a*/
+  color: #00bc9c;
+  text-decoration: none;/*here underline*/
 }
 
 a:not([href]):not([tabindex]) {
@@ -567,7 +567,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  margin: 10px 0 0 0;
+  margin: 31px 0 11px 0;
   font-size: 1.25rem;
   letter-spacing: 0.5px;
   color: #506A85;
@@ -2674,6 +2674,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 
 .btn:focus, .btn:hover {
+  background: #17a78b;
   text-decoration: none;
 }
 
@@ -2700,8 +2701,8 @@ fieldset[disabled] a.btn {
 .btn-primary {
   padding: 6px;
   position: absolute;
-  bottom: 85px;
-  right: 20px;
+  top: 4px;
+  right: 5px;
   width: 88px;
   height: 30px;
   background-color: #00bc9c;
@@ -2714,8 +2715,7 @@ fieldset[disabled] a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #025aa5;
-  border-color: #01549b;
+  background-color: #17a78b;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2731,9 +2731,8 @@ fieldset[disabled] a.btn {
 .btn-primary:active, .btn-primary.active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #025aa5;
+  background-color: #17a78b;
   background-image: none;
-  border-color: #01549b;
 }
 
 .btn-secondary {
@@ -2802,7 +2801,7 @@ fieldset[disabled] a.btn {
   border: none;
   border-bottom: 2px solid #00a085;
   border-radius: 3px;
-  margin: 47px;
+  margin: 47px 0;
   width: 295px;
   height: 65px;
 }
@@ -2821,8 +2820,7 @@ fieldset[disabled] a.btn {
 
 .btn-start:hover {
   color: #fff;
-  background-color: #449d44;
-  border-color: #419641;
+  background-color: #17a78b;
 }
 
 .btn-start:focus, .btn-start.focus {
@@ -2838,9 +2836,8 @@ fieldset[disabled] a.btn {
 .btn-start:active, .btn-start.active,
 .show > .btn-start.dropdown-toggle {
   color: #fff;
-  background-color: #449d44;
+  background-color: #17a78b;
   background-image: none;
-  border-color: #419641;
 }
 
 .btn-warning {
@@ -3981,8 +3978,7 @@ tbody.collapse.show {
   display: inline-block;
   padding-top: .25rem;
   padding-bottom: .25rem;
-  margin-right: 5.2rem; /*here 1rem*/
-  /*margin-left: -2rem;*/ /*here none */
+  margin-right: 3.8rem; /*here 1rem*/
   font-size: 1.25rem;
   line-height: inherit;
   white-space: nowrap;
@@ -4002,9 +3998,11 @@ tbody.collapse.show {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-left: 0;
+  padding-left: 20px;
   margin-bottom: 0;
   list-style: none;
+  background: white;
+  border-radius: 5px;
 }
 
 .navbar-item {
@@ -4027,7 +4025,7 @@ tbody.collapse.show {
       -ms-flex-item-align: start;
           align-self: flex-start;
   padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
+  font-size: 3rem;
   line-height: 1;
   background: transparent;
   border: 1px solid transparent;
@@ -4056,7 +4054,7 @@ tbody.collapse.show {
 
 .navbar-toggler-right {
   position: absolute;
-  right: 1rem;
+  right: 0rem;
 }
 
 @media (max-width: 575px) {
@@ -4795,8 +4793,9 @@ tbody.collapse.show {
 
 .breadcrumb-item {
   float: left;
+  font-size: 10pt;
   color: #707e8c; /*here none*/
-  letter-spacing: 0; /*here none*/
+  letter-spacing: 0.7px; /*here none*/
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -4804,7 +4803,7 @@ tbody.collapse.show {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
   color: #636c72;
-  content: "/";
+  content: "∙";
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -6069,23 +6068,21 @@ button.close {
 }
 
 .carousel-indicators {
-  position: absolute;
-  right: 48%;
-  bottom: -17px;
-  z-index: 15;
-  padding: 0;
-  margin: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  list-style: none;
-  background: white;
-  border-radius: 3px;
+    position: relative;
+    z-index: 15;
+    padding: 0 10px;
+    margin: -21px auto;
+    margin-bottom: -18px;
+    width: 145px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    list-style: none;
+    background: white;
+    border-radius: 3px;
 }
 
 .carousel-indicators li {
@@ -6130,9 +6127,9 @@ button.close {
 
 .carousel-caption {
   position: absolute;
-  right: 25%; /*here 15%*/
+  right: 10%; /*here 15%*/
   bottom: 0px; /*here 20px*/
-  left: 25%; /*here 15%*/
+  left: 10%; /*here 15%*/
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 15px; /*here 20px*/
@@ -6658,6 +6655,15 @@ a.bg-inverse:focus, a.bg-inverse:hover {
               -ms-grid-row-align: stretch !important;
           align-self: stretch !important;
 }
+
+@media (min-width: 1500px) {
+  .d-xxl-inline-block {
+    display: inline-block !important;
+  }
+  .d-xxl-none {
+    display: none !important;
+  }
+}  
 
 @media (min-width: 576px) {
   .flex-sm-first {
