@@ -101,7 +101,7 @@ h5:hover {
 }
 
 .hovered-media-object {
-    background: #00bc9c;
+    background: transparent;
     color: white;
     font-size: 32pt;
 }
@@ -120,7 +120,10 @@ h5:hover {
     transition: opacity linear 0.2s;
 
 }
-
+.hovered-media-object:hover,
+.hovered-media-object:active {
+    background: #00bc9c;
+}
 .hovered-media-object img:focus,
 .hovered-media-object img:hover {
     opacity: 0.1;
