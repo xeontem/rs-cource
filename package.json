@@ -23,6 +23,13 @@
   },
   "homepage": "https://github.com/rolling-scopes-school/xeontem-front-end-course#readme",
   "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "copy-webpack-plugin": "^4.0.1",
     "webpack": "^2.4.1"
   }
 }
