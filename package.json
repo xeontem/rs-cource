@@ -1,0 +1,28 @@
+{
+  "name": "youtube",
+  "version": "1.0.0",
+  "description": "youtube app for RS school",
+  "main": "index.js",
+  "scripts": {
+    "test": "hahaha no",
+    "watch": "webpack -w --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/xeontem-front-end-course.git"
+  },
+  "keywords": [
+    "youtube",
+    "web",
+    "aplication"
+  ],
+  "author": "xeontem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/xeontem-front-end-course/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/xeontem-front-end-course#readme",
+  "devDependencies": {
+    "webpack": "^2.4.1"
+  }
+}
