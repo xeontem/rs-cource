@@ -3,7 +3,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config = {
-    entry: __dirname + '/src/js/main.js',
+    entry: __dirname + '/src/js/index.js',
     output: {
             path: __dirname + '/dist',
             filename: 'js/bundle.js',
@@ -14,7 +14,8 @@ const config = {
         new CopyWebpackPlugin([
             {from: './src/index.html', to: './'},
             {from: './src/img/', to: './img'},
-            {from: './src/css/', to: './css/'}
+            {from: './src/css/', to: './css/'},
+            {from: './src/jsDepends/', to: './jsDepends/'}
         ]),
         new BrowserSyncPlugin({
             host: process.env.IP || 'localhost',
@@ -34,6 +35,11 @@ const config = {
                 query: {
                     presets: ['es2015']
                 }
+            },
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                exclude: '/node_modules/'
             }
         ]
     },

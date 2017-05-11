@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+body {
+	margin: 0;
+    padding: 20px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+body, li {
+	overflow: hidden;
+}
+
+.componentHeader a {
+	font-family: 'Lato', sans-serif;
+}
+
+iframe {
+	width: 350px;
+	height: 196px; 
+    border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.auth-section {
+	position: relative;
+	height: 75px;
+}
+
+#auth-status {
+	transition: opacity 1s;
+}
+
+.avatar {
+    position: absolute;
+    right: 0;
+    top: -19px;
+    border: 1px solid #2f2f2f;
+    border-radius: 50%;
+}
+
+.nickname {
+	position: absolute;
+    right: 110px;
+    top: -30px;
+}
+
+.email {
+    position: absolute;
+    right: 110px;
+    top: -5px;
+}
+
+.btn {
+    position: absolute;
+    right: 110px;
+    top: 40px;
+    height: 29px;
+    color: white;
+    background: red;
+    border: 1px solid #2f2f2f;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-login {
+	right: 230px;
+}
+
+.btn:hover {
+	background: white;
+	color: #2f2f2f;
+}
+
+.btn-subscr {
+	width: 350px;
+}
+
+.btn-search {
+    position: initial;
+    border-radius: 5px 0px 0px 5px;
+    border-right: 0;
+}
+
+#search {
+	width: 100%;
+    padding-left: 5px;
+    height: 25px;
+    font-size: 16pt;
+    border: 1px solid #000;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.search-section {
+	position: relative;
+	display: flex;
+	margin: auto;
+	width: 45%;
+	margin-top: 20px;
+}
+
+.logo {
+	width: 110px;
+    height: 46px;
+    margin: -10px 20px 0 0;
+    background: url(../img/logo2.png);
+    background-size: cover;
+    cursor: pointer;
+}
+
+.logo-image {
+	width: 110px;
+	transition: opacity 1s;
+}
+
+.logo-image:hover {
+	opacity: 0;
+}
+
+.preview {
+	width: 350px;
+}
+
+.play {
+	position: absolute;
+    left: 42%;
+    top: 31%;
+    font-size: 54pt !important; 
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.play:hover {
+	color: red;
+}
+
+.videos {
+	position: relative;
+	height: 1080px;
+}
+
+.wrapper {
+	position: relative;	
+	height: 100%;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    overflow: hidden;
+}
+
+.slide {
+	height: 100%;
+	margin: 30px 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	transition: left 0.5s;
+	cursor: -webkit-grab;
+}
+
+.component {
+	position: relative;
+    width: 350px;
+    background: #cc181e;
+    /* border: 1px solid #ffffff; */
+    opacity: 0.91;
+    color: #ffffff;
+    display: inline-block;
+    margin: 2%;
+    margin-bottom: 100px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 10px 1px #000;
+    transition: all 0.5s;
+	
+	
+}
+
+.component:hover {
+	opacity: 0.99;
+	box-shadow: 0 0 80px 1px #000;
+}
+
+#info {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
+	text-align: left;
+}
+
+#info li{
+	height: 30px;
+	position: relative;
+}
+
+#info li p {
+	padding-left: 10px;
+	display: inline-block;
+	margin: 0;
+}
+
+.componentHeader {
+	background: #2f2f2f;
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+    padding-top: 5px;
+    position: relative;
+    overflow: hidden;
+    height: 55px;
+    font-size: 15pt;
+}
+
+#title {
+	color: #ffffff;
+}
+
+#description {
+	text-align: left;
+	margin: 0 15px;
+	overflow: hidden;
+	height: 110px;
+}
+
+#author {
+	white-space: nowrap;
+	overflow: hidden;
+	-ms-text-overflow: ;
+	text-overflow: ellipsis;
+}
+
+.notFound {
+	color: #000;
+	text-align: center;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+.paging {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#pages {
+	text-align: center;
+	margin: 0;
+	margin-bottom: 8px;
+	padding: 0;
+	transition: all 0.5s;
+}
+
+.paging li {
+    cursor: pointer;
+    color: #2f2f2f;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #2f2f2f;
+    margin: 0 3px;
+    -webkit-user-select: none;
+    transition: all 0.5s;
+}
+
+.paging li:hover,
+.paging .active {
+    background: red;
+    /* border: 1px solid #2f2f2f; */
+    color: white;
+}
+
+/*---------------------- animation -------------------------*/
+.animate {
+  animation: drop 1s infinite alternate;
+}
+
+@keyframes drop {
+  from {
+    top: -50px;
+    }
+  to {
+    top: 0px;
+    }
+}
