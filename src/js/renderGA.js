@@ -1,3 +1,5 @@
+import config from './config';
+
 export default class GASection {
     static setInfo(responce) {
         //console.log(responce);
@@ -74,16 +76,17 @@ export default class GASection {
             let isAuthorized = user.hasGrantedScopes(SCOPE);
             if (isAuthorized) {
                 GASection.setInfo(user);// fill info user panel...
-
                 document.querySelector('.auth-section div').style.display = 'block';
                 document.querySelector('#sign-in-or-out-button').innerHTML = 'Sign out';
                 document.querySelector('#revoke-access-button').style.display = 'inline-block';
-                showInfo('You are currently signed in and have granted access to this app.');
+                config.showInfo('You are currently signed in and have granted access to this app.');
+                config.isAuthenticate = true;// this need for subscribe button 
             } else {
                 document.querySelector('.auth-section div').style.display = 'none';
                 document.querySelector('#sign-in-or-out-button').innerHTML = 'Sign In';
                 document.querySelector('#revoke-access-button').style.display = 'none';
-                showInfo('You have not authorized this app or you are signed out.');
+                config.showInfo('You have not authorized this app or you are signed out.');
+                config.isAuthenticate = false;// this need for subscribe button 
             }
         }
 

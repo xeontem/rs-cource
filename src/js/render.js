@@ -23,7 +23,10 @@ export default class Render{
         let avatar = document.createElement('img');
         let button = document.createElement('button');
         let statusDiv = document.createElement('div');
-        
+        let auth = document.createElement('div');
+        let authSection = document.createElement('section');
+        let p = document.createElement('p');
+
         let nick = document.createElement('h3');
         let email = document.createElement('p');
 
@@ -49,11 +52,15 @@ export default class Render{
         avatar.classList.add('avatar');
         nick.classList.add('nickname');
         email.classList.add('email');
+        auth.classList.add('auth');
+        auth.innerHTML = 'AUTHENTICATION';
         hider.appendChild(avatar);
         hider.appendChild(nick);
         hider.appendChild(email);
         hider.style.display = 'none';
         section.appendChild(hider);
+        // auth.appendChild(p);
+        
 
         //sign in button    
         button.classList.add('btn', 'btn-login');
@@ -69,8 +76,12 @@ export default class Render{
         // status div
         statusDiv.setAttribute('id', 'auth-status');
         section.appendChild(statusDiv);
-        document.body.appendChild(section);
-        document.body.appendChild(hr);
+        authSection.classList.add('auth-main-container');
+        authSection.appendChild(section);
+        authSection.appendChild(hr);
+        authSection.appendChild(auth);
+        document.body.appendChild(authSection);
+
         // search section
         searchSection.classList.add('search-section');
         
@@ -81,7 +92,7 @@ export default class Render{
         searchButton.innerHTML = 'SEARCH';
         // input.setAttribute('type', 'text');
         input.setAttribute('id', 'search');
-        input.setAttribute('autofocus', '');
+        //input.setAttribute('autofocus', '');
         // create logo
         img.classList.add('logo-image');
         img.setAttribute('src', './img/logo.png');
@@ -115,10 +126,17 @@ export default class Render{
         let sectionSlide = document.createElement('section')
         let divComponent = document.createElement('div');
         let componentHeader = document.createElement('div');
+        let previewPlaceholder = document.createElement('div');
+
+        let infoContainer = document.createElement('div');
+        // let overSubscr = document.createElement('button');
+
         let a = document.createElement('a');
         // let iframe = document.createElement('iframe');
         let preview = document.createElement('img');
-
+        
+        // let subscr = document.createElement('button');
+        
         let subscr = document.createElement('div');
         
         let ul = document.createElement('ul');
@@ -144,15 +162,27 @@ export default class Render{
         // iframe.setAttribute('allowfullscreen','');
         preview.classList.add('preview');
         i.classList.add('play', 'fa', 'fa-youtube-play');
-        divComponent.appendChild(preview);
-        divComponent.appendChild(i);
+        previewPlaceholder.classList.add('placeholder');
+        previewPlaceholder.appendChild(preview);
+        previewPlaceholder.appendChild(i);
+        divComponent.appendChild(previewPlaceholder);
 
         // subcribe "button"
-        subscr.classList.add('g-ytsubscribe', 'btn-subscr');
-        subscr.setAttribute('data-layout', 'full');
-        subscr.setAttribute('data-count', 'default');
-        subscr.setAttribute('data-theme', 'dark');
-        divComponent.appendChild(subscr);
+            // subscr.classList.add('btn');
+            // subscr.classList.add('btn-subscr');
+            // subscr.innerHTML = 'SUBSCRIBE';
+            // infoContainer.appendChild(subscr);
+
+        infoContainer.classList.add('info-container');
+
+        // overSubscr.classList.add('over-subscribe');
+        subscr.innerHTML = 'SUBSCRIBE';
+        // subscr.classList.add('g-ytsubscribe'/*, 'btn-subscr'*/);
+        // subscr.setAttribute('data-layout', 'full');
+        // subscr.setAttribute('data-count', 'default');
+        // subscr.setAttribute('data-theme', 'dark');
+        infoContainer.appendChild(subscr);
+        // infoContainer.appendChild(overSubscr);
 
         // info below iframe
         ul.setAttribute('id', 'info');
@@ -180,11 +210,12 @@ export default class Render{
         li.appendChild(i);
         li.appendChild(p);
         ul.appendChild(li);
-        divComponent.appendChild(ul);
+        infoContainer.appendChild(ul);
 
         // description text
         pDescription.setAttribute('id', 'description');
-        divComponent.appendChild(pDescription);
+        infoContainer.appendChild(pDescription);
+        divComponent.appendChild(infoContainer);
 
         for (let i = 0; i < config.videosCount; i++) {
     	   	sectionSlide.appendChild(divComponent.cloneNode(true));
@@ -214,7 +245,7 @@ export default class Render{
                 }     
                 slides[slides.length - 1].style.left = left + 'px'; // apply position to new slide
             } 
-            Listeners.slidePos.push(parseInt(slides[slides.length - 1].style.left));// add new slide pos to all positions
+            config.slidePos.push(parseInt(slides[slides.length - 1].style.left));// add new slide pos to all positions
 			first = false;
 		}
 	}

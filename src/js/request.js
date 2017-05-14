@@ -1,21 +1,13 @@
 import config from './config';
-
+import { addListenersAfterResponse } from './listeners.js';
 
 export default class Request {
-    constructor() {
-        Request.apiKey = 'AIzaSyA17KYHw-TfsiBy3TdT8hThejNcLjdNnOo';
-		this.counter = 1;
-		this.isRemoved = false;
-		Request.pageNumber = 0;
 
-    }
-
-    
-
-    initialization() {this.searchText = document.querySelector('#search').value;
+    initialization() {
+        this.searchText = document.querySelector('#search').value;
         document.querySelector('#search').value = '';
         document.querySelector('#search').setAttribute('placeholder', this.searchText);
-        const url = 'https://www.googleapis.com/youtube/v3/search?key=' + Request.apiKey + '&type=video&part=snippet&maxResults=' + 15/*videosCount*/ + '&q=' + this.searchText;
+        const url = `https://www.googleapis.com/youtube/v3/search?key=${config.apiKey}&type=video&part=snippet&maxResults=${config.requestCount}&q=${this.searchText}`;
         
         Request.openXHRRequest(url).then(
             response => Request.onSearchResponse(response),
@@ -46,67 +38,62 @@ export default class Request {
 
 
     static onSearchResponse(response) {
-        // let index = 0;
-		let videoIDs = '';
-        // if search result not found show nothing
-            response = JSON.parse(response);
-            // if(!Request.isRemoved){
-            //     document.head.removeChild(document.querySelector('#api'));
-            //     Request.isRemoved = true;
-            // }
+		config.countRequests++;
+        response = JSON.parse(response);
+        // if(!config.isRemoved){
+        //     document.head.removeChild(document.querySelector('#api'));
+        //     config.isRemoved = true;
+        // }
             
-            if (response.items.length !== 0) {
-                // Request.searchResult = true;
-            } else {
-                // Request.searchResult = false;
-                let wrapper = document.querySelector('.wrapper');
-                let pages = document.querySelector('#pages');
-                while(wrapper.firstChild) wrapper.removeChild(wrapper.firstChild);
-                while(pages.firstChild) pages.removeChild(pages.firstChild);
-                showInfo(`Response failed. Found nothing`);
-                return;
-            }
+        // if search result not found show nothing
+        if (!response.items){
+            // Request.searchResult = false;
+            let wrapper = document.querySelector('.wrapper');
+            let pages = document.querySelector('#pages');
+            while(wrapper.firstChild) wrapper.removeChild(wrapper.firstChild);// because https://jsperf.com/innerhtml-vs-removechild
+            while(pages.firstChild) pages.removeChild(pages.firstChild);// because https://jsperf.com/innerhtml-vs-removechild
+            config.showInfo(`Response failed. Found nothing`);
+            return;
+        }
         
         //------------------------------------------- show info about response ----------------------------------
-            showInfo(`Response success. Found about ${response.pageInfo.totalResults} videos`);
-            
+            config.showInfo(`Response success. Found about ${response.pageInfo.totalResults} videos`);
         //-------------------------------------------------------------------------------------------------------
 
-
+        let videoIDs = '';
         for (let i = 0; i < response.items.length; i++) {
-            let index = config.videosCount * Request.pageNumber + i;
+            console.log(`config.videosCount: ${config.videosCount} | config.pageNumber: ${config.pageNumber}`);
+            let index = config.videosCount * config.pageNumber + i;
             let videoID = response.items[i].id.videoId;
             let switcher = 1;
             i !== response.items.length - 1 ? videoIDs += `${videoID},` : videoIDs += videoID;
-            // if (i !== response.items.length - 1) {
-            //     videoIDs += ',';
-            // }
+            
             document.querySelectorAll('#title')[index].innerHTML = response.items[i].snippet.title;
             document.querySelectorAll('#title')[index].setAttribute('href', 'http://www.youtube.com/watch?v=' + videoID);
             document.querySelectorAll('#description')[index].innerHTML = response.items[i].snippet.description;
             document.querySelectorAll('#date')[index].innerHTML = response.items[i].snippet.publishedAt.slice(0, 10);
             document.querySelectorAll('#author')[index].innerHTML = response.items[i].snippet.channelTitle;
             document.querySelectorAll('.preview')[index].setAttribute('src', response.items[i].snippet.thumbnails.high.url); 
-            Request.addListenerPlay(response, index, videoID);
-            // document.querySelectorAll('.video-frame')[index].setAttribute('src', 'https://www.youtube.com/embed/' + videoID);  
-            //document.querySelectorAll('.g-ytsubscribe')[index].setAttribute('data-channel', response.items[i].snippet.channelTitle);
+            document.querySelectorAll('.info-container div')[index].setAttribute('data-channel', response.items[i].snippet.channelTitle);
+            addListenersAfterResponse(response, index, videoID);
             
-            // if(Request.isRemoved){
+            // if(config.isRemoved){
             //     let script = document.createElement('script');
             //     script.setAttribute('id', 'api');
             //     script.setAttribute('src', 'https://apis.google.com/js/platform.js')
             //     document.head.appendChild(script);
-            //     Request.isRemoved = false;
-            // }  
+            //     config.isRemoved = false;
+            // }
+
             index++;
         }
 
-		let url = 'https://www.googleapis.com/youtube/v3/videos?key=' + this.apiKey + '&id=' + videoIDs + '&part=snippet,statistics';
-	    Request.openXHRRequest(url).then(
+        const url = `https://www.googleapis.com/youtube/v3/videos?key=${config.apiKey}&id=${videoIDs}&part=snippet,statistics`;
+        Request.openXHRRequest(url).then(
             (response) => {
                 response = JSON.parse(response);
                 for (let i = 0; i < response.items.length; i++) {
-                    document.querySelectorAll('#viewers')[config.videosCount * this.pageNumber+i].innerHTML = response.items[i].statistics.viewCount;
+                    document.querySelectorAll('#viewers')[config.videosCount * config.pageNumber+i].innerHTML = response.items[i].statistics.viewCount;
                 }
             },
             error => alert(`Rejected: Can't load views`)
@@ -115,30 +102,27 @@ export default class Request {
 	}
 
 	newRequest() {
-		Request.pageNumber += Math.round(15/config.videosCount);
-		let url = 'https://www.googleapis.com/youtube/v3/search?key=' + Request.apiKey + '&type=video&part=snippet&maxResults=' + 15 + '&pageToken=' + Request.nextPageToken + '&q=' + this.searchText;
+		config.pageNumber += Math.round(15/config.videosCount);
+		const url = `https://www.googleapis.com/youtube/v3/search?key=${config.apiKey}&type=video&part=snippet&maxResults=${config.requestCount}&pageToken=${Request.nextPageToken}&q=${this.searchText}`;
         Request.openXHRRequest(url).then(
             (response) => Request.onSearchResponse(response),
             error => alert(`Rejected: ${error}`)
         );
 	}
 
-    static addListenerPlay(response, index, videoID) {// in progress
-        document.querySelectorAll('.play')[index].addEventListener('click', e => {
-            // alert(`im button ${index}`);
-            // document.querySelectorAll('.play')[index];
-            var iframe = document.createElement('iframe');
-            iframe.setAttribute('width', '350px');
-            iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoID);
-            iframe.setAttribute('allowfullscreen', '');
-            document.querySelectorAll('.play')[index].parentNode.insertBefore(iframe, document.querySelectorAll('.play')[index].nextSibling);//appendChild(iframe);
-            // div.parentNode.insertBefore(div2, div.nextSibling);
-            document.querySelectorAll('.component')[index].removeChild(document.querySelectorAll('.play')[index]);
-            document.querySelectorAll('.component')[index].removeChild(document.querySelectorAll('.preview')[index]);
-        });
-    }
+    
+    // static addListenerPlay(response, index, videoID) {// in progress
+    //     document.querySelectorAll('.play')[index].addEventListener('click', e => {
+            
+    //         let component = document.querySelectorAll('.component')[index];
+    //         let placeholder = component.children[1];
+    //         let iframe = document.createElement('iframe');
+    //         iframe.setAttribute('width', '350px');
+    //         iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoID + '?autoplay=1');
+    //         iframe.setAttribute('allowfullscreen', '');
+    //         placeholder.parentNode.insertBefore(iframe, placeholder.nextSibling);//appendChild(iframe);
+    //         placeholder.style.display = 'none';
+        
+    //     });
+    // }
 }
-
-
-
-// <iframe width="560" height="315" src="https://www.youtube.com/embed/UBfsS1EGyWc" frameborder="0" allowfullscreen></iframe>

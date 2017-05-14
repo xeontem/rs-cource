@@ -14,8 +14,7 @@ const config = {
         new CopyWebpackPlugin([
             {from: './src/index.html', to: './'},
             {from: './src/img/', to: './img'},
-            {from: './src/css/', to: './css/'},
-            {from: './src/jsDepends/', to: './jsDepends/'}
+            {from: './src/css/', to: './css/'}
         ]),
         new BrowserSyncPlugin({
             host: process.env.IP || 'localhost',

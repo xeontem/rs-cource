@@ -5,6 +5,11 @@ body {
 	margin: 0;
     padding: 20px;
     font-family: "Source Sans Pro", sans-serif;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(bottom, white, #2f2f2f); /*Safari 5.1-6*/
+    background: -o-linear-gradient(bottom, white, #2f2f2f); /*Opera 11.1-12*/
+    background: -moz-linear-gradient(bottom, white, #2f2f2f); /*Fx 3.6-15*/
+    background: linear-gradient(to bottom, white, #2f2f2f); /*Standard*/
 }
 
 body, li {
@@ -25,9 +30,40 @@ a {
 	text-decoration: none;
 }
 
+.auth-main-container {
+    margin-top: -104px;
+    transition: all 0.5s;
+}
+
+.auth-main-container:hover {
+    margin-top: 0;
+}
+
+.auth {
+    margin: -9px auto 0 auto;
+    padding: 4px 5px;
+    display: table;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.auth:hover {
+    background: white;
+    color: black;
+}
+
 .auth-section {
 	position: relative;
 	height: 75px;
+}
+
+.auth-section > :last-child {
+    position: absolute;
+    top: 90px;
 }
 
 #auth-status {
@@ -64,6 +100,7 @@ a {
     border: 1px solid #2f2f2f;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.5s;
 }
 
 .btn-login {
@@ -73,10 +110,6 @@ a {
 .btn:hover {
 	background: white;
 	color: #2f2f2f;
-}
-
-.btn-subscr {
-	width: 350px;
 }
 
 .btn-search {
@@ -128,7 +161,7 @@ a {
 	position: absolute;
     left: 42%;
     top: 31%;
-    font-size: 54pt !important; 
+    font-size: 46pt !important; 
     cursor: pointer;
     transition: all 0.5s;
 }
@@ -157,7 +190,7 @@ a {
 	position: absolute;
 	text-align: center;
 	width: 100%;
-	transition: left 0.5s;
+	transition: left 0.7s cubic-bezier(0, 0, 0.15, 1.57);/*here */
 	cursor: -webkit-grab;
 }
 
@@ -165,7 +198,6 @@ a {
 	position: relative;
     width: 350px;
     background: #cc181e;
-    /* border: 1px solid #ffffff; */
     opacity: 0.91;
     color: #ffffff;
     display: inline-block;
@@ -181,6 +213,28 @@ a {
 .component:hover {
 	opacity: 0.99;
 	box-shadow: 0 0 80px 1px #000;
+}
+
+.placeholder {
+    margin-top: -33px;
+    height: 230px;
+    overflow: hidden;
+}
+
+/*subscribe section*/
+.info-container div{
+    position: absolute;
+    padding: 10px 0px;
+    width: 172px;
+    right: 15px;
+    bottom: 120px;
+    z-index: 100;
+    border: none;
+    background: #2f2f2f;
+    font-size: 16pt;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
 }
 
 #info {
