@@ -23,7 +23,7 @@ export default {
         document.querySelector('#auth-status').style.opacity = '0';
     },
     chooseVideosCount: function() {
-        alert(navigator.userAgent.match(/Windows/i));
+        // alert(navigator.userAgent.match(/Windows/i));
         if(!navigator.userAgent.match(/Windows/i)) {
             this.mobile = true;
             this.videoCount = 1;
