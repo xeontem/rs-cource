@@ -235,7 +235,9 @@ export default class Render{
 			if(first) document.querySelector('#pages li').className = 'active';
             else {
                 let parse = parseInt(slides[slides.length-2].style.left);
-                let left = parse/*Int(slides[slides.length-1].style.left)*/ + window.innerWidth;// calculate position to new slide
+                let left;
+                if(config.mobile) left = parse/*Int(slides[slides.length-1].style.left)*/ + window.screen.availWidth;// calculate position to new slide
+                else left = parse/*Int(slides[slides.length-1].style.left)*/ + window.innerWidth;// calculate position to new slide
                 if(nextToken){
                     if(fromSlide){
                         left = window.innerWidth * 2;

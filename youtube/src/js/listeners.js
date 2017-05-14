@@ -130,6 +130,9 @@ export default class Listeners {
 	}
 
 	slideMove(e, isTouchEvent, render, request) {
+        // alert(window.screen.availWidth);
+        let scrollSize = window.innerWidth;
+        if(config.mobile) scrollSize = window.screen.availWidth;
 		if (isTouchEvent) {
 			this.deltaX = (e.changedTouches[0].clientX - this.pointX);
 			this.pointX = e.changedTouches[0].clientX;
@@ -152,17 +155,17 @@ export default class Listeners {
                 } else {
                     x = Math.abs(e.pageX - this.startX);
                 }
-                if (x > window.innerWidth / 3) {
+                if (x > scrollSize / 3) {
                     this.isTouch = false;
                     let isMoveFirstSlide = false;
                     if (parseInt(allSlides[i].style.left) > config.slidePos[i]) {
                         isMoveFirstSlide = true;
-                        offset = config.slidePos[i] + window.innerWidth;
+                        offset = config.slidePos[i] + scrollSize;
                     } else {
-                        offset = config.slidePos[i] - window.innerWidth;
+                        offset = config.slidePos[i] - scrollSize;
                     }
                     if (isMoveFirstSlide && config.slidePos[0] === 0) {
-                        offset -= window.innerWidth;
+                        offset -= scrollSize;
                     }
                 }
                 allSlides[i].style.left = offset + 'px';

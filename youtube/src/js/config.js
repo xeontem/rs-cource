@@ -1,8 +1,9 @@
 export default {
+    mobile: false,
     countRequests: -1,
     isAuthenticate: false,
     apiKey: 'AIzaSyA17KYHw-TfsiBy3TdT8hThejNcLjdNnOo',
-	videoCount: 1,
+	videosCount: 1,
     requestCount: 15,
     pageNumber: 0,
     isRemoved: false,
@@ -22,10 +23,10 @@ export default {
         document.querySelector('#auth-status').style.opacity = '0';
     },
     chooseVideosCount: function() {
-        // alert(navigator.userAgent);
+        alert(navigator.userAgent.match(/Windows/i));
         if(!navigator.userAgent.match(/Windows/i)) {
-            // this.showInfo('Mobile version');
-            this.videosCount = 1;
+            this.mobile = true;
+            this.videoCount = 1;
         }
         else {
             // this.showInfo('Desktop version');

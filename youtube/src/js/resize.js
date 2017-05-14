@@ -3,8 +3,9 @@ import config from './config';
 export default class Resize {
 	constructor() {
 		window.onresize = function() {
-            if(navigator.platform == 'Android' || navigator.platform == 'iPhone' || navigator.platform == 'iPod' || navigator.platform == 'iPad') {
+            if(!navigator.userAgent.match(/Windows/i)) {
                 config.showInfo('Mobile version');
+                config.mobile = true;
                 config.videosCount = 1;
             }
             else {
