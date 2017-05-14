@@ -25,23 +25,25 @@ export default class Listeners {
             }
         });
         //------------------------------------- event listener for SEARCH button -------------------------------
-        document.querySelector('.btn-search').addEventListener('click', function(e) {
-                if(document.querySelector('#search').value){
-                    document.title = document.querySelector('#search').value.toUpperCase();
-                    config.slidePos = [0];
-                    if(main.newSearch){
-                        config.reset();
-                        let wrapper = document.querySelector('.wrapper');
-                        let pages = document.querySelector('#pages');
-                        while(wrapper.firstChild) wrapper.removeChild(wrapper.firstChild);
-                        while(pages.firstChild) pages.removeChild(pages.firstChild);
-                    }
-                    main.newSearch = true;
-                    main.render.addNewSlide(true, null, null);
-                    main.request.initialization(main);
-                    config.currentPage = 0;
-                } else config.showInfo('please enter search keyword');
-        });
+        if(!config.mobile) {
+            document.querySelector('.btn-search').addEventListener('click', function(e) {
+                    if(document.querySelector('#search').value){
+                        document.title = document.querySelector('#search').value.toUpperCase();
+                        config.slidePos = [0];
+                        if(main.newSearch){
+                            config.reset();
+                            let wrapper = document.querySelector('.wrapper');
+                            let pages = document.querySelector('#pages');
+                            while(wrapper.firstChild) wrapper.removeChild(wrapper.firstChild);
+                            while(pages.firstChild) pages.removeChild(pages.firstChild);
+                        }
+                        main.newSearch = true;
+                        main.render.addNewSlide(true, null, null);
+                        main.request.initialization(main);
+                        config.currentPage = 0;
+                    } else config.showInfo('please enter search keyword');
+            });
+        }
 
         //authorization button listener
         let clicked = false;
@@ -132,15 +134,15 @@ export default class Listeners {
 	slideMove(e, isTouchEvent, render, request) {
         // alert(window.screen.availWidth);
         let scrollSize = window.innerWidth;
-        if(config.mobile) scrollSize = window.screen.availWidth;
-		if (isTouchEvent) {
-			this.deltaX = (e.changedTouches[0].clientX - this.pointX);
-			this.pointX = e.changedTouches[0].clientX;
-		} else {
-			this.deltaX = (e.pageX - this.pointX);
-			this.pointX = e.pageX;
-		}
-		if (this.isTouch) {
+        // if(config.mobile) scrollSize = window.screen.availWidth;
+        if (isTouchEvent) {
+            this.deltaX = (e.changedTouches[0].clientX - this.pointX);
+            this.pointX = e.changedTouches[0].clientX;
+        } else {
+            this.deltaX = (e.pageX - this.pointX);
+            this.pointX = e.pageX;
+        }
+        if (this.isTouch) {
             let allSlides = document.querySelectorAll('.slide');
             let offset;
             this.next = false;

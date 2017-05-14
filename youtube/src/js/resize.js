@@ -3,12 +3,8 @@ import config from './config';
 export default class Resize {
 	constructor() {
 		window.onresize = function() {
-            if(!navigator.userAgent.match(/Windows/i)) {
-                config.showInfo('Mobile version');
-                config.mobile = true;
-                config.videosCount = 1;
-            }
-            else {
+            document.body.style.height = `${window.innerHeight}px`;
+            if(!config.mobile) {
                 config.showInfo('Desktop version');
 			    if (window.innerWidth > 1250) {
 			    	if (config.videosCount !== 3) {

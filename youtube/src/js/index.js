@@ -1,6 +1,8 @@
 import Main from './main';
 import config from './config';
 
+
+config.checkMobile();
 config.chooseVideosCount();
 let main = new Main();
 main.render.renderPage();

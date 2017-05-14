@@ -8,7 +8,7 @@ export default class Render{
     }
 
     renderPage() {
-        
+        document.body.style.height = `${window.innerHeight}px`;
         // let subscr = document.createElement('div');
         // subscr.classList.add('g-ytsubscribe');
         // subscr.classList.add('btn-subscr');
@@ -31,13 +31,15 @@ export default class Render{
         let email = document.createElement('p');
 
         let hr = document.createElement('hr');
-        let logoDiv = document.createElement('div');
+        let logoDiv;
+        if(!config.mobile) { logoDiv = document.createElement('div'); }
         let img = document.createElement('img');
         let a = document.createElement('a');
         let input = document.createElement('input');;
         let searchSection = document.createElement('section');
         //let label = document.createElement('label');
-        let searchButton = document.createElement('button');
+        let searchButton;
+        if(!config.mobile) { searchButton = document.createElement('button') };
 
         let i = document.createElement('i');
         
@@ -87,21 +89,21 @@ export default class Render{
         
         //i.classList.add('fa', 'fa-search');
         //label.appendChild(i);
-        searchButton.classList.add('btn');
-        searchButton.classList.add('btn-search');
-        searchButton.innerHTML = 'SEARCH';
+        if(!config.mobile) { searchButton.classList.add('btn'); }
+        if(!config.mobile) { searchButton.classList.add('btn-search'); }
+        if(!config.mobile) { searchButton.innerHTML = 'SEARCH'; }
         // input.setAttribute('type', 'text');
         input.setAttribute('id', 'search');
         //input.setAttribute('autofocus', '');
         // create logo
         img.classList.add('logo-image');
         img.setAttribute('src', './img/logo.png');
-        logoDiv.classList.add('logo');
+        if(!config.mobile) { logoDiv.classList.add('logo'); }
         a.setAttribute('href', 'https://www.youtube.com/');
         a.appendChild(img);
-        logoDiv.appendChild(a);
-        searchSection.appendChild(logoDiv);
-        searchSection.appendChild(searchButton);// here label
+        if(!config.mobile) { logoDiv.appendChild(a); }
+        if(!config.mobile) {searchSection.appendChild(logoDiv); }
+        if(!config.mobile) { searchSection.appendChild(searchButton); }// here label
         searchSection.appendChild(input);
         document.body.appendChild(searchSection);
 
