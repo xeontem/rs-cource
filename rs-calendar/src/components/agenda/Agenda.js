@@ -1,36 +1,38 @@
 import React from 'react';
-import { Paper, AppBar, Card, DatePicker, DropDownMenu, List } from 'material-ui';
+import DatePicker from 'react-md/lib/Pickers/DatePickerContainer';
 
-import './agenda.css';
+import EventsList from '../eventsList/EventsList';
 
-export default class Calendar extends React.Component {
+export default class Agenda extends React.Component {
+	constructor(props) {
+		super(props);
+	}
 
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Paper>
-                <AppBar title="Agenda" />
-                <Card>
-                    <p>text in card</p>
-                </Card>
-                <DatePicker floatingLabelText="Select start date"/>
-                <DatePicker floatingLabelText="Select end date"/>
-                <List>
-                    <p>Event Name 1</p>
-                    <DropDownMenu />
-                </List>
-                <List>
-                    <p>Event Name 2</p>
-                    <DropDownMenu />
-                </List>
-                <List>
-                    <p>Event Name 3</p>
-                    <DropDownMenu />
-                </List>    
-            </Paper>
-        );
-    }    
+	render() {
+		const to = new Date();
+		const from = new Date(to - 1000 * 60 * 60 * 24 * 30) ;
+		return (
+			<div style={{width: '100%'}}>
+				<div className="md-grid no-padding">	
+					<DatePicker
+						id="local-ru-RU"
+				        label="Select from date"
+				        locales="ru-RU"
+				        defaultValue={from}
+				        className="md-cell"
+					/>
+					<DatePicker
+						id="local-ru-RU"
+				        label="Select to date"
+				        locales="ru-RU"
+				        defaultValue={to}
+				        className="md-cell"
+					/>
+				</div>	
+				<div>
+					<EventsList events={this.props.events}/>
+				</div>
+			</div>	
+		)
+	}
 }

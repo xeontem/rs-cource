@@ -1,30 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import registerServiceWorker from './registerServiceWorker';
-import Calendar from './App';
-import events from './events';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import App from './App';
 import './index.css';
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
 
-class RSCalendar extends React.Component {
-    render() {
-        return (
-            <MuiThemeProvider /*muiTheme={getMuiTheme(darkBaseTheme)}*/>
-                <Calendar
-                    className="data-reactroot"
-                    events={events}
-                />
-            </MuiThemeProvider>
-            )
-    }
-}
+import WebFontLoader from 'webfontloader';
 
-ReactDOM.render(<RSCalendar />, document.getElementById('root'));
-registerServiceWorker();
+WebFontLoader.load({
+  google: {
+    families: ['Roboto:300,400,500,700', 'Material Icons'],
+  },
+});
+
+let events;
+
+fetch('http://128.199.53.150/events')
+  .then(function(response) {
+  if(response.ok) {
+    return response.json();
+  }
+}).then(function(myJson){
+	events = myJson;
+
+	class myApp extends React.Component {
+		constructor(props) {
+			super(props);
+		}
+		
+		render() {
+			return <App events={events} />
+		}
+	}	
+
+	ReactDOM.render((
+		<BrowserRouter>
+	        <div>
+	            <Route path="/" component={myApp} />
+	            <Redirect to="/agenda"/>
+	        </div>
+	    </BrowserRouter>),
+	  document.getElementById('root')
+	);
+});  
