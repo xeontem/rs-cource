@@ -8,3 +8,18 @@ a {
 
 .agenda-wrapper {
   width: 100%; }
+
+.md-block-expanded {
+  margin: 64px auto; }
+
+.description {
+  padding: 15px; }
+
+.chip {
+  margin: 5px; }
+
+.loading-bar {
+  width: 110% !important;
+  top: -25px;
+  z-index: 1000;
+  left: -8px; }
