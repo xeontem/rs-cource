@@ -266,7 +266,9 @@ a {
   background: #eee; }
 
 .table-cell {
-  padding: 0px !important; }
+  margin: auto 0;
+  padding: 0px !important;
+  transition: all 0.5s; }
 
 .disabled-cell {
   opacity: 0.5; }
@@ -560,6 +562,9 @@ section:first-child {
   transition: all 0.5s;
   left: 0;
   right: 0; }
+
+.over, .over-fromP {
+  border: 2px solid #3f51b5 !important; }
 
 @media (max-width: 576px) {
   .table-cell {
