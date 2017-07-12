@@ -10,7 +10,7 @@
 
 <body>
     <div class="row">
-        <section class="widget">
+        <section class="widget" tabindex="0">
             <div class="diagram-container">
                 <div class="column-header">
                     <p>40</p>
@@ -19,44 +19,44 @@
                     <p>0</p>
                 </div>
                 <div class="column-body">
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Mon</p>
-                        <div class="column-component-tooltip">17</div>
+                        <div class="column-component-tooltip" role="definition" role="definition">17</div>
                     </div>
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Tues</p>
-                        <div class="column-component-tooltip">18</div>
+                        <div class="column-component-tooltip" role="definition">18</div>
                     </div>
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Wed</p>
-                        <div class="column-component-tooltip">27</div>
+                        <div class="column-component-tooltip" role="definition">27</div>
                     </div>
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Thu</p>
-                        <div class="column-component-tooltip">32</div>
+                        <div class="column-component-tooltip" role="definition">32</div>
                     </div>
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Fri</p>
-                        <div class="column-component-tooltip">28</div>
+                        <div class="column-component-tooltip" role="definition">28</div>
                     </div>
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Sat</p>
-                        <div class="column-component-tooltip">34</div>
+                        <div class="column-component-tooltip" role="definition">34</div>
                     </div>
-                    <div class="column-component">
+                    <div class="column-component" tabindex="0">
                         <p>Sun</p>
-                        <div class="column-component-tooltip">31</div>
+                        <div class="column-component-tooltip" role="definition">31</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>      
     </div>
     <div class="row">
-        <section class="widget">
+        <section class="widget" tabindex="0">
             <div class="widget-calendar widget-calendar-header">
-                <div class="navigation navigation-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
-                <p id="date" class="current-date">May <span>2014</span></p>
-                <div class="navigation navigation-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                <div class="navigation navigation-left" tabindex="0"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                <p id="date" class="current-date" tabindex="0">May <span>2014</span></p>
+                <div class="navigation navigation-right" tabindex="0"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
             </div>
             <div class="widget-calendar widget-calendar-body">
                 <table>
@@ -74,13 +74,13 @@
                         <td class="disabled">30</td>
                         <td>1</td>
                         <td>2</td>
-                        <td class="today">3</td>
+                        <td class="today" tabindex="0">3</td>
                         <td>4</td>
                         <td>5</td>
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td class="event">7</td>
+                        <td class="event" tabindex="0">7</td>
                         <td>8</td>
                         <td>9</td>
                         <td>10</td>
@@ -100,7 +100,7 @@
                         <td>20</td>
                         <td>21</td>
                         <td>22</td>
-                        <td class="event">23</td>
+                        <td class="event" tabindex="0">23</td>
                         <td>24</td>
                         <td>25</td>
                         <td>26</td>
@@ -115,91 +115,89 @@
                         <td class="disabled">3</td>
                     </tr>
                 </table>
-                <button>ADD EVENT</button>
+                <button tabindex="0">ADD EVENT</button>
             </div>
         </section>
-        <!-- 	</div> -->
-        <!-- 	<div class="row"> -->
-        <section class="widget">
+        <section class="widget" tabindex="0">
             <div class="placeholder">
-                <h3>Hotel Relais</h3>
-                <p><i class="fa fa-map-marker" aria-hidden="true"></i> Paris, France</p>
+                <h3 tabindex="0">Hotel Relais</h3>
+                <p tabindex="0"><i class="fa fa-map-marker" aria-hidden="true"></i> Paris, France</p>
             </div>
             <div class="booking-body">
                 <form action="#">
                     <div class="input-bar">
                         <p>Check in</p>
-                        <input class="check" type="text" placeholder="9 July, 2016">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <input class="check" type="text" placeholder="9 July, 2016" tabindex="0">
+                        <i class="fa fa-calendar" aria-hidden="true" tabindex="0"></i>
                     </div>
                     <div class="input-bar">
                         <p>Check out</p>
-                        <input class="check" type="text" placeholder="16 July, 2016">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <input class="check" type="text" placeholder="16 July, 2016" tabindex="0">
+                        <i class="fa fa-calendar" aria-hidden="true" tabindex="0"></i>
                     </div>
                     <div class="input-bar-checkbox">
                         <input id="test1" type="checkbox" checked>
-                        <label for="test1">Flexible dates</label>
+                        <label for="test1" tabindex="0">Flexible dates</label>
                     </div>
                     <div class="input-bar input-bar-half inline-block">
                         <p>Adults</p>
-                        <input class="check" type="text" placeholder="2">
-                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        <input class="check" type="text" placeholder="2" tabindex="0">
+                        <i class="fa fa-caret-down" aria-hidden="true" tabindex="0"></i>
                     </div>
                     <div class="input-bar input-bar-half inline-block">
                         <p>Children</p>
-                        <input class="check" type="text" placeholder="1">
-                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        <input class="check" type="text" placeholder="1" tabindex="0">
+                        <i class="fa fa-caret-down" aria-hidden="true" tabindex="0"></i>
                     </div>
-                    <button><i class="fa fa-search" aria-hidden="true"></i>SEARCH ROOMS</button>
+                    <button tabindex="0"><i class="fa fa-search" aria-hidden="true"></i>SEARCH ROOMS</button>
                 </form>
             </div>
         </section>
-        <section class="widget">
+        <section class="widget" tabindex="0">
             <form id="email">
-                <input id="reciever" type="text">
+                <input id="reciever" type="text" tabindex="0">
                 <label for="reciever">
                     <div class="email-container label-centering">
-                        <div class="email-container-component">rick.james@mail.com<i class="fa fa-times" aria-hidden="true"></i></div>
-                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <div class="email-container-component" tabindex="0">rick.james@mail.com<i class="fa fa-times" aria-hidden="true" tabindex="0"></i></div>
+                        <i class="fa fa-plus" aria-hidden="true" tabindex="0"></i>
                     </div>
                 </label>
-                <input id="file" type="text">
-                <label for="file">
+                <input id="file" type="file">
+                <label for="file" tabindex="0">
                     <div class="email-container label-centering">
                         <p class="placeholder-text">Subject</p>
                         <i class="fa fa-paperclip" aria-hidden="true"></i>
                     </div>
                 </label>
-                <textarea class="textarea-shape email-container label-centering" form="email" placeholder="Message"></textarea>
-                <button class="email-send">SEND</button>
+                <textarea class="textarea-shape email-container label-centering" form="email" placeholder="Message" tabindex="0"></textarea>
+                <button class="email-send" tabindex="0">SEND</button>
             </form>
         </section>
     </div>
     <div class="row">
-        <section class="widget">
-            <nav class="inline-block">
+        <section class="widget" tabindex="0">
+            <nav class="inline-block" role="navigation">
                 <ul class="destination-nav">
-                    <li class="current"><i class="fa fa-eye" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-map-marker" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                    <li class="current" tabindex="0"><i class="fa fa-eye" aria-hidden="true"></i></li>
+                    <li tabindex="0"><i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                    <li tabindex="0"><i class="fa fa-star" aria-hidden="true"></i></li>
                 </ul>
             </nav>
             <article class="inline-block article-destination">
-                <h3>My most favourite<br> place in the world</h3>
-                <p id="reviews" class="reviews"><span>154</span>Reviews</p>
-                <p class="main-text">
+                <h3 tabindex="0">My most favourite<br> place in the world</h3>
+                <p id="reviews" class="reviews" tabindex="0"><span>154</span>Reviews</p>
+                <p class="main-text" tabindex="0" role="article">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a pulvinar ipsum. Aliquam sit amet iaculis dolor. Vivamus sed diam sollicitudin.
                 </p>
-                <a href="#">Read more</a>
+                <a href="#" tabindex="0">Read more</a>
             </article>
             <div class="inline-block placeholder-destination">
                 <div class="likes-container">
                     <div class="likes-component comments inline-block">
-                        <p><i class="fa fa-comment" aria-hidden="true"></i>752</p>
+                        <p tabindex="0"><i class="fa fa-comment" aria-hidden="true"></i>752</p>
                     </div>
                     <div class="likes-component likes inline-block">
-                        <p><i class="fa fa-heart" aria-hidden="true"></i>2709</p>
+                        <p tabindex="0"><i class="fa fa-heart" aria-hidden="true"></i>2709</p>
                     </div>
                 </div>
             </div>

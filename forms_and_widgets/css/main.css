@@ -61,6 +61,7 @@ button:hover {
 }
 
 .widget {
+	position: relative;
 	margin: 25px;
 	display: inline-block;
 	vertical-align: top;
@@ -502,8 +503,9 @@ button:hover {
 input[id=reciever],
 input[id=file] {
 	position: absolute;
-    left: -9999px;
+	left: -9999px;
 }
+
 .email-container {
 	position: relative;
 	width: 322px;
