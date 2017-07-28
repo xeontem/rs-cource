@@ -1,5 +1,3 @@
 ## Artsiom Kukharev (xeontem)
 
-### RS-Calendar with user view and admin editor
-
-## [Link ](http://xeontem-md-calendar.bitballoon.com) to calendar
+## https://sheltered-headland-67163.herokuapp.com to backend API
