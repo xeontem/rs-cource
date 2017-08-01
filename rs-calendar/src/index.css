@@ -456,6 +456,12 @@ a {
 .pointer {
   cursor: pointer; }
 
+.iframe-wrapper {
+  margin-bottom: 20px; }
+
+.move-on-top:hover {
+  z-index: 10; }
+
 .container {
   display: flex;
   justify-content: space-between;
