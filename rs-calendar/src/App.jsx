@@ -17,6 +17,7 @@ import Table from './components/table/Table';
 import Agenda from './components/agenda/Agenda';
 import globalScope from './globalScope';
 import LoginDialog from './components/login/loginDialog';
+import SigninDialog from './components/login/signinDialog';
 
 import { _loadEvents } from './instruments/fetching';
 import gitLogo from './github-logo.svg';
@@ -37,6 +38,7 @@ class App extends PureComponent {
             isAdmin: false,
             toast: [],
             visible: false,
+            signInvisible: false,
             user: 'user',
             avatar: globalScope.defaultAvatar
         }
@@ -97,11 +99,19 @@ class App extends PureComponent {
         let visible = !this.state.visible;
         this.setState({visible});
     }
+
+    _openSigninDialog = () => {
+        let signInvisible = !this.state.signInvisible;
+        this.setState({signInvisible});
+    }
    
     render() {
+        const mobile = typeof window.orientation !== 'undefined';
+        if(mobile) this.title = '';
         const buttons = ([
             <Avatar src={this.state.avatar} role="presentation" />,
             <Button flat label={this.state.user} />,
+            <Button icon tooltipLabel="log in" onClick={this._openSigninDialog}>assignment</Button>,
             <Button icon tooltipLabel="log in" onClick={this._openLoginDialog}>assignment_ind</Button>,
             <Button icon tooltipLabel="reset events" onClick={this._resetEvents}>refresh</Button>
         ]);
@@ -114,6 +124,7 @@ class App extends PureComponent {
                 toolbarActions={buttons}
             >
             <LoginDialog visible={this.state.visible} app={this}></LoginDialog>
+            <SigninDialog visible={this.state.signInvisible} app={this}></SigninDialog>
             <Snackbar toasts={this.state.toast} autohide={true} onDismiss={this._removeToast}/>
             <Switch>
                 <Route exact path="/month" component={this.month} />
