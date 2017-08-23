@@ -212,6 +212,9 @@ a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.87); }
 
+.active i, .active div {
+  color: #3f51b5 !important; }
+
 .admin-true {
   display: inline-flex;
   margin: 12% 0 !important;
@@ -219,7 +222,7 @@ a {
 
 .admin-false {
   display: inline-flex;
-  color: grey; }
+  color: gray; }
 
 .navigation {
   display: flex; }
